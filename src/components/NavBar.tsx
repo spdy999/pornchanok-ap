@@ -6,14 +6,14 @@ import Toolbar from '@material-ui/core/Toolbar'
 import React from 'react'
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   menuButton: {
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
   },
   title: {
-    flexGrow: 1
-  }
+    flexGrow: 1,
+  },
 }))
 
 export const NavBar = () => {
