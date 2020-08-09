@@ -1,7 +1,7 @@
 import { createMuiTheme, CssBaseline, ThemeProvider, useMediaQuery } from '@material-ui/core'
 import React from 'react'
 import './App.css'
-import { Cover } from './components/Cover'
+import { FullPages } from './components/FullPages'
 
 function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
@@ -26,8 +26,9 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Cover />
-      <div>under cover</div>
+      <FullPages />
+      {/* <Cover />
+      <div>under cover</div> */}
     </ThemeProvider>
   )
 }
