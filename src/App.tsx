@@ -28,7 +28,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <NavBar />
-      <Welcome name="Jaemin" />
+      <Welcome name="World!" />
     </ThemeProvider>
   )
 }
