@@ -1,8 +1,7 @@
 import { createMuiTheme, CssBaseline, ThemeProvider, useMediaQuery } from '@material-ui/core'
 import React from 'react'
 import './App.css'
-import { NavBar } from './components/NavBar'
-import { Welcome } from './components/Welcome'
+import { Cover } from './components/Cover'
 
 function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
@@ -27,8 +26,8 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <NavBar />
-      <Welcome name="World!" />
+      <Cover />
+      <div>under cover</div>
     </ThemeProvider>
   )
 }

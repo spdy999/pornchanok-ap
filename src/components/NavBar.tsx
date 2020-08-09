@@ -6,7 +6,10 @@ import Toolbar from '@material-ui/core/Toolbar'
 import React from 'react'
 const useStyles = makeStyles(theme => ({
   root: {
+    // position: 'static',
     flexGrow: 1,
+    // opacity: 0.5,
+    // 'background-color': 'white',
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -14,6 +17,19 @@ const useStyles = makeStyles(theme => ({
   title: {
     flexGrow: 1,
   },
+  // header: {
+  //   position: 'absolute',
+  //   left: 0,
+  //   top: 0,
+  //   right: 0,
+  //   'z-index': 1,
+  // },
+
+  // banner: {
+  //   position: 'relative',
+  //   'z-index': 0,
+  //   height: '100vh',
+  // },
 }))
 
 export const NavBar = () => {
