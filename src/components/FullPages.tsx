@@ -2,6 +2,7 @@ import ReactFullpage from '@fullpage/react-fullpage'
 import React from 'react'
 import { NavBar } from './NavBar'
 import { IntroduceSection } from './Sections/IntroduceSection'
+import { SlideSection } from './Sections/SlideSection'
 
 interface FullPagesProps {}
 
@@ -12,7 +13,7 @@ export const FullPages: React.FC<FullPagesProps> = props => {
   return (
     <ReactFullpage
       scrollOverflow={true}
-      sectionsColor={['orange', 'purple', 'green']}
+      sectionsColor={['', 'orange', 'purple', 'green']}
       anchors={['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage']}
       menu={'#myMenu'}
       render={props => {
@@ -21,17 +22,7 @@ export const FullPages: React.FC<FullPagesProps> = props => {
             <NavBar fullpageApi={props.fullpageApi} />
             <div id="fullpage-wrapper">
               <IntroduceSection />
-              <div className="section">
-                <div className="slide">
-                  <h3>Slide 2.1</h3>
-                </div>
-                <div className="slide">
-                  <h3>Slide 2.2</h3>
-                </div>
-                <div className="slide">
-                  <h3>Slide 2.3</h3>
-                </div>
-              </div>
+              <SlideSection />
               <div className="section">
                 <h3>Section 3</h3>
                 <button onClick={() => props.fullpageApi.moveTo(1)}>Move top</button>
