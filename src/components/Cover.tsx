@@ -1,6 +1,5 @@
 import { makeStyles } from '@material-ui/core'
 import React from 'react'
-import { NavBar } from './NavBar'
 
 const useStyles = makeStyles(theme => ({
   cover: {
@@ -49,7 +48,7 @@ export const Cover = () => {
 
   return (
     <div className={classes.cover}>
-      <NavBar />
+      {/* <NavBar /> */}
       <div className={classes.filler}>
         <div>I'm Pornchanpk Ap.</div>
         <div>| Developer |</div>

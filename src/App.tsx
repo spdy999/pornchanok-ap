@@ -2,7 +2,6 @@ import { createMuiTheme, CssBaseline, ThemeProvider, useMediaQuery } from '@mate
 import React from 'react'
 import './App.css'
 import { FullPages } from './components/FullPages'
-import { NavBar } from './components/NavBar'
 
 function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
@@ -26,7 +25,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <NavBar />
+      {/* <NavBar /> */}
       <CssBaseline />
       <FullPages />
     </ThemeProvider>
