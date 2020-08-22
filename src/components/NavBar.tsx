@@ -7,12 +7,19 @@ import React from 'react'
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
+    position: 'fixed',
+    right: 0,
+    left: 0,
+    'z-index': 1,
   },
   menuButton: {
     marginRight: theme.spacing(2),
   },
   title: {
     flexGrow: 1,
+  },
+  appBar: {
+    backgroundColor: 'rgba(0, 0, 0, 0)',
   },
 }))
 
@@ -21,7 +28,7 @@ export const NavBar = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" className={classes.appBar}>
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <Avatar alt="React logo" src="logo192.png" />
