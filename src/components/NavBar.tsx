@@ -31,7 +31,7 @@ export const NavBar = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar className={classes.appBar}>
+      <AppBar className={classes.appBar} elevation={0}>
         <Toolbar className={classes.toolBar}>
           <IconButton className={classes.iconButton}>
             {/* <IconButton edge="start" className={classes.iconButton} color="inherit" aria-label="menu"> */}
