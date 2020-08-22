@@ -1,6 +1,7 @@
 import ReactFullpage from '@fullpage/react-fullpage'
 import React from 'react'
 import { NavBar } from './NavBar'
+import { ContactSection } from './Sections/ContactSection'
 import { IntroduceSection } from './Sections/IntroduceSection'
 import { SlideSection } from './Sections/SlideSection'
 
@@ -30,9 +31,7 @@ export const FullPages: React.FC<FullPagesProps> = props => {
               <div className="section">
                 <h3>Section 4</h3>
               </div>
-              <div className="section">
-                <h3>Section 5</h3>
-              </div>
+              <ContactSection />
             </div>
           </div>
         )
