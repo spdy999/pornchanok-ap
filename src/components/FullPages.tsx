@@ -1,6 +1,7 @@
 import ReactFullpage from '@fullpage/react-fullpage'
 import React from 'react'
 import { NavBar } from './NavBar'
+import { IntroduceSection } from './Sections/IntroduceSection'
 
 interface FullPagesProps {}
 
@@ -19,12 +20,7 @@ export const FullPages: React.FC<FullPagesProps> = props => {
           <div>
             <NavBar fullpageApi={props.fullpageApi} />
             <div id="fullpage-wrapper">
-              <div className="section section1">
-                <h3>Section 1</h3>
-                <button onClick={() => props.fullpageApi.moveSectionDown()}>
-                  Click me to move down
-                </button>
-              </div>
+              <IntroduceSection />
               <div className="section">
                 <div className="slide">
                   <h3>Slide 2.1</h3>
