@@ -49,9 +49,15 @@ export const NavBar: React.FC<NavBarProps> = props => {
           <Button color="inherit" onClick={() => props.fullpageApi.moveTo(2)}>
             PROFESSIONAL
           </Button>
-          <Button color="inherit">EXPERIENCE</Button>
-          <Button color="inherit">PORTFOLIO</Button>
-          <Button color="inherit">CONTACT</Button>
+          <Button color="inherit" onClick={() => props.fullpageApi.moveTo(3)}>
+            EXPERIENCE
+          </Button>
+          <Button color="inherit" onClick={() => props.fullpageApi.moveTo(4)}>
+            PORTFOLIO
+          </Button>
+          <Button color="inherit" onClick={() => props.fullpageApi.moveTo(5)}>
+            CONTACT
+          </Button>
         </Toolbar>
       </AppBar>
     </div>

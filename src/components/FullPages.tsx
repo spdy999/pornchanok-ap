@@ -40,6 +40,12 @@ export const FullPages: React.FC<FullPagesProps> = props => {
                 <h3>Section 3</h3>
                 <button onClick={() => props.fullpageApi.moveTo(1)}>Move top</button>
               </div>
+              <div className="section">
+                <h3>Section 4</h3>
+              </div>
+              <div className="section">
+                <h3>Section 5</h3>
+              </div>
             </div>
           </div>
         )
