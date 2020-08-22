@@ -3,7 +3,6 @@ import AppBar from '@material-ui/core/AppBar'
 import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core/styles'
 import Toolbar from '@material-ui/core/Toolbar'
-import { withStyles } from '@material-ui/styles'
 import React from 'react'
 const useStyles = makeStyles(theme => ({
   root: {
@@ -13,31 +12,29 @@ const useStyles = makeStyles(theme => ({
     left: 0,
     'z-index': 1,
   },
-  menuButton: {
+  iconButton: {
     marginRight: theme.spacing(2),
+    // 'aria-label': 'menu',
+    // edge: 'start',
+    // color: 'inherit',
   },
-}))
-
-const StyledAppBar = withStyles({
-  root: {
+  appBar: {
     backgroundColor: 'rgba(0, 0, 0, 0)',
   },
-})(AppBar)
-
-const StyledToolBar = withStyles({
-  root: {
+  toolBar: {
     'align-self': 'center',
   },
-})(Toolbar)
+}))
 
 export const NavBar = () => {
   const classes = useStyles()
 
   return (
     <div className={classes.root}>
-      <StyledAppBar>
-        <StyledToolBar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+      <AppBar className={classes.appBar}>
+        <Toolbar className={classes.toolBar}>
+          <IconButton className={classes.iconButton}>
+            {/* <IconButton edge="start" className={classes.iconButton} color="inherit" aria-label="menu"> */}
             <Avatar alt="React logo" src="logo192.png" />
           </IconButton>
           <Button color="inherit">HOME</Button>
@@ -45,8 +42,8 @@ export const NavBar = () => {
           <Button color="inherit">EXPERIENCE</Button>
           <Button color="inherit">PORTFOLIO</Button>
           <Button color="inherit">CONTACT</Button>
-        </StyledToolBar>
-      </StyledAppBar>
+        </Toolbar>
+      </AppBar>
     </div>
   )
 }
