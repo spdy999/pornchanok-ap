@@ -7,12 +7,22 @@ import React from 'react'
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
+    position: 'fixed',
+    right: 0,
+    left: 0,
+    'z-index': 1,
   },
-  menuButton: {
+  iconButton: {
     marginRight: theme.spacing(2),
+    // 'aria-label': 'menu',
+    // edge: 'start',
+    // color: 'inherit',
   },
-  title: {
-    flexGrow: 1,
+  appBar: {
+    backgroundColor: 'rgba(0, 0, 0, 0)',
+  },
+  toolBar: {
+    'align-self': 'center',
   },
 }))
 
@@ -21,9 +31,10 @@ export const NavBar = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+      <AppBar className={classes.appBar}>
+        <Toolbar className={classes.toolBar}>
+          <IconButton className={classes.iconButton}>
+            {/* <IconButton edge="start" className={classes.iconButton} color="inherit" aria-label="menu"> */}
             <Avatar alt="React logo" src="logo192.png" />
           </IconButton>
           <Button color="inherit">HOME</Button>
