@@ -19,13 +19,19 @@ function App() {
             primary: '#fff',
           },
         },
+        overrides: {
+          MuiTypography: {
+            h1: {
+              fontSize: '2rem',
+            },
+          },
+        },
       }),
     [prefersDarkMode]
   )
 
   return (
     <ThemeProvider theme={theme}>
-      {/* <NavBar /> */}
       <CssBaseline />
       <FullPages />
     </ThemeProvider>
