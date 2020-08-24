@@ -1,4 +1,4 @@
-import { Grid, GridSpacing, makeStyles } from '@material-ui/core'
+import { Grid, GridSpacing, IconButton, makeStyles } from '@material-ui/core'
 import FacebookIcon from '@material-ui/icons/Facebook'
 import GitHubIcon from '@material-ui/icons/GitHub'
 import LinkedInIcon from '@material-ui/icons/LinkedIn'
@@ -38,15 +38,27 @@ export const ContactSection: React.FC<ContactSectionProps> = props => {
         <StyledTextH3>Tel: +66917689666</StyledTextH3>
         <Grid item xs={12}>
           <Grid container justify="center" spacing={spacing}>
-            <Grid item>
+            <IconButton
+              color="inherit"
+              aria-label="Github.com"
+              onClick={() => window.open('https://www.Github.com/spdy999')}
+            >
               <GitHubIcon />
-            </Grid>
-            <Grid item>
+            </IconButton>
+            <IconButton
+              color="inherit"
+              aria-label="Linkedin.com"
+              onClick={() => window.open('https://www.Linkedin.com/in/pornchanok-ap')}
+            >
               <LinkedInIcon />
-            </Grid>
-            <Grid item>
+            </IconButton>
+            <IconButton
+              color="inherit"
+              aria-label="Linkedin.com"
+              onClick={() => window.open('https://www.facebook.com/pornchanok.ap')}
+            >
               <FacebookIcon />
-            </Grid>
+            </IconButton>
           </Grid>
         </Grid>
       </div>
