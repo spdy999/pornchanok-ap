@@ -1,4 +1,4 @@
-import { Avatar, IconButton } from '@material-ui/core'
+import { Avatar, Hidden, IconButton } from '@material-ui/core'
 import AppBar from '@material-ui/core/AppBar'
 import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core/styles'
@@ -9,9 +9,8 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     position: 'fixed',
-    right: 0,
     left: 0,
-    'z-index': 1,
+    right: 0,
   },
   iconButton: {
     marginRight: theme.spacing(2),
@@ -20,7 +19,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: 'rgba(0, 0, 0, 0)',
   },
   toolBar: {
-    'align-self': 'center',
+    alignSelf: 'center',
   },
 }))
 
@@ -28,38 +27,37 @@ interface NavBarProps {
   fullpageApi: IfullpageApi
 }
 
-export const NavBar: React.FC<NavBarProps> = props => {
+const NavBar: React.FC<NavBarProps> = props => {
   const classes = useStyles()
-
-  // const moveSection = useEffect(
-  //   (sectionNumber: number) => props.fullpageApi.moveTo(sectionNumber),
-  //   []
-  // )
 
   return (
     <div id="myMenu" className={classes.root}>
-      <AppBar className={classes.appBar} elevation={0}>
-        <Toolbar className={classes.toolBar}>
-          <IconButton className={classes.iconButton}>
-            <Avatar alt="React logo" src="logo192.png" />
-          </IconButton>
-          <Button color="inherit" onClick={() => props.fullpageApi.moveTo(1)}>
-            HOME
-          </Button>
-          <Button color="inherit" onClick={() => props.fullpageApi.moveTo(2)}>
-            PROFESSIONAL
-          </Button>
-          <Button color="inherit" onClick={() => props.fullpageApi.moveTo(3)}>
-            EXPERIENCE
-          </Button>
-          <Button color="inherit" onClick={() => props.fullpageApi.moveTo(4)}>
-            PORTFOLIO
-          </Button>
-          <Button color="inherit" onClick={() => props.fullpageApi.moveTo(5)}>
-            CONTACT
-          </Button>
-        </Toolbar>
-      </AppBar>
+      <Hidden xsDown>
+        <AppBar className={classes.appBar} elevation={0}>
+          <Toolbar className={classes.toolBar}>
+            <IconButton className={classes.iconButton}>
+              <Avatar alt="React logo" src="logo192.png" />
+            </IconButton>
+            <Button color="inherit" onClick={() => props.fullpageApi.moveTo(1)}>
+              HOME
+            </Button>
+            <Button color="inherit" onClick={() => props.fullpageApi.moveTo(2)}>
+              PROFESSIONAL
+            </Button>
+            <Button color="inherit" onClick={() => props.fullpageApi.moveTo(3)}>
+              EXPERIENCE
+            </Button>
+            <Button color="inherit" onClick={() => props.fullpageApi.moveTo(4)}>
+              PORTFOLIO
+            </Button>
+            <Button color="inherit" onClick={() => props.fullpageApi.moveTo(5)}>
+              CONTACT
+            </Button>
+          </Toolbar>
+        </AppBar>
+      </Hidden>
     </div>
   )
 }
+
+export default NavBar
