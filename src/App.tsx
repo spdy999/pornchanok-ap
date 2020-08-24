@@ -21,8 +21,18 @@ function App() {
         },
         overrides: {
           MuiTypography: {
+            root: {
+              marginBlockStart: '0.5em',
+              marginBlockEnd: '0.5em',
+            },
             h1: {
               fontSize: '2rem',
+            },
+            h2: {
+              fontSize: '1.5rem',
+            },
+            h3: {
+              fontSize: '1rem',
             },
           },
         },

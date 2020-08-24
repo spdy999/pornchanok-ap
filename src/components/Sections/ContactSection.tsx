@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/core'
 import React from 'react'
-import { StyledTextH1 } from '../common/StyledTextH1'
+import StyledTextH2 from '../common/StyledTextH2'
+import StyledTextH3 from '../common/StyledTextH3'
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -15,8 +16,8 @@ export const ContactSection: React.FC<ContactSectionProps> = props => {
   return (
     <div className="section">
       <div className={classes.root}>
-        <StyledTextH1>CONTACT</StyledTextH1>
-        <p>Feel free to contact me.</p>
+        <StyledTextH2>CONTACT</StyledTextH2>
+        <StyledTextH3>Feel free to contact me.</StyledTextH3>
       </div>
     </div>
   )
