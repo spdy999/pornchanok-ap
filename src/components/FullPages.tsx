@@ -3,7 +3,7 @@ import React from 'react'
 import NavBar from './NavBar'
 import ResponsiveMenu from './ResponsiveMenu'
 import { ContactSection } from './Sections/ContactSection'
-import { IntroduceSection } from './Sections/IntroduceSection'
+import FirstSection from './Sections/FirstSection'
 import { SlideSection } from './Sections/SlideSection'
 
 interface FullPagesProps {}
@@ -24,7 +24,7 @@ export const FullPages: React.FC<FullPagesProps> = props => {
             <NavBar fullpageApi={props.fullpageApi} />
             <ResponsiveMenu fullpageApi={props.fullpageApi} />
             <div id="fullpage-wrapper">
-              <IntroduceSection />
+              <FirstSection />
               <SlideSection />
               <div className="section">
                 <h3>Section 3</h3>
