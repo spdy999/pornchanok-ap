@@ -49,14 +49,25 @@ const ResponsiveMenu: React.FC<ResponsiveMenuProps> = props => {
           open={Boolean(anchorEl)}
           onClose={handleClose}
         >
-          <MenuItem className={classes.homeIcon}>
-            <HomeIcon onClick={() => props.fullpageApi.moveTo(1)} />
+          <MenuItem
+            className={classes.homeIcon}
+            onClick={() => {
+              setAnchorEl(null)
+              props.fullpageApi.moveTo(1)
+            }}
+          >
+            <HomeIcon
+              onClick={() => {
+                setAnchorEl(null)
+                props.fullpageApi.moveTo(1)
+              }}
+            />
           </MenuItem>
           {buttonList.map((button: IButton, i: number) => (
             <MenuItem
               onClick={() => {
                 setAnchorEl(null)
-                props.fullpageApi.moveTo(i + 1)
+                props.fullpageApi.moveTo(i + 2)
               }}
             >
               {button.name}
