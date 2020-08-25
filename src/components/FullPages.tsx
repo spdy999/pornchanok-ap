@@ -22,7 +22,7 @@ export const FullPages: React.FC<FullPagesProps> = props => {
         return (
           <div>
             <NavBar fullpageApi={props.fullpageApi} />
-            <ResponsiveMenu />
+            <ResponsiveMenu fullpageApi={props.fullpageApi} />
             <div id="fullpage-wrapper">
               <IntroduceSection />
               <SlideSection />

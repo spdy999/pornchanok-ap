@@ -1,6 +1,8 @@
 import { Hidden, IconButton, makeStyles, Menu, MenuItem } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 import React, { useState } from 'react'
+import { buttonList, IButton } from '../buttons'
+import { IfullpageApi } from './FullPages'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -12,7 +14,11 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const ResponsiveMenu: React.FC = () => {
+interface ResponsiveMenuProps {
+  fullpageApi: IfullpageApi
+}
+
+const ResponsiveMenu: React.FC<ResponsiveMenuProps> = props => {
   const classes = useStyles()
 
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
@@ -24,6 +30,7 @@ const ResponsiveMenu: React.FC = () => {
   const handleClose = () => {
     setAnchorEl(null)
   }
+
   return (
     <div id="myMenu" className={classes.root}>
       <Hidden smUp>
@@ -37,9 +44,16 @@ const ResponsiveMenu: React.FC = () => {
           open={Boolean(anchorEl)}
           onClose={handleClose}
         >
-          <MenuItem onClick={handleClose}>Profile</MenuItem>
-          <MenuItem onClick={handleClose}>My account</MenuItem>
-          <MenuItem onClick={handleClose}>Logout</MenuItem>
+          {buttonList.map((button: IButton, i: number) => (
+            <MenuItem
+              onClick={() => {
+                setAnchorEl(null)
+                props.fullpageApi.moveTo(i + 1)
+              }}
+            >
+              {button.name}
+            </MenuItem>
+          ))}
         </Menu>
       </Hidden>
     </div>
