@@ -3,6 +3,7 @@ import MenuIcon from '@material-ui/icons/Menu'
 import React, { useState } from 'react'
 import { buttonList, IButton } from '../buttons'
 import { IfullpageApi } from './FullPages'
+import HomeIcon from './HomeIcon'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -11,6 +12,10 @@ const useStyles = makeStyles(theme => ({
     right: 0,
     top: 0,
     zIndex: 2,
+  },
+  homeIcon: {
+    display: 'flex',
+    justifyContent: 'center',
   },
 }))
 
@@ -44,6 +49,9 @@ const ResponsiveMenu: React.FC<ResponsiveMenuProps> = props => {
           open={Boolean(anchorEl)}
           onClose={handleClose}
         >
+          <MenuItem className={classes.homeIcon}>
+            <HomeIcon onClick={() => props.fullpageApi.moveTo(1)} />
+          </MenuItem>
           {buttonList.map((button: IButton, i: number) => (
             <MenuItem
               onClick={() => {

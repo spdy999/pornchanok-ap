@@ -4,9 +4,6 @@ export interface IButton {
 
 export const buttonList = [
   {
-    name: 'HOME',
-  },
-  {
     name: 'PROFESSIONAL',
   },
   {

@@ -1,4 +1,4 @@
-import { Avatar, Hidden, IconButton } from '@material-ui/core'
+import { Hidden } from '@material-ui/core'
 import AppBar from '@material-ui/core/AppBar'
 import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core/styles'
@@ -6,6 +6,7 @@ import Toolbar from '@material-ui/core/Toolbar'
 import React from 'react'
 import { buttonList, IButton } from '../buttons'
 import { IfullpageApi } from './FullPages'
+import HomeIcon from './HomeIcon'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -37,11 +38,9 @@ const NavBar: React.FC<NavBarProps> = props => {
       <Hidden xsDown>
         <AppBar className={classes.appBar} elevation={0}>
           <Toolbar className={classes.toolBar}>
-            <IconButton className={classes.iconButton}>
-              <Avatar alt="React logo" src="logo192.png" />
-            </IconButton>
+            <HomeIcon onClick={() => props.fullpageApi.moveTo(1)} />
             {buttonList.map((button: IButton, i: number) => (
-              <Button color="inherit" onClick={() => props.fullpageApi.moveTo(i + 1)}>
+              <Button color="inherit" onClick={() => props.fullpageApi.moveTo(i + 2)}>
                 {button.name}
               </Button>
             ))}
