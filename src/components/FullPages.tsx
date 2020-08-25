@@ -1,6 +1,7 @@
 import ReactFullpage from '@fullpage/react-fullpage'
 import React from 'react'
-import { NavBar } from './NavBar'
+import NavBar from './NavBar'
+import ResponsiveMenu from './ResponsiveMenu'
 import { ContactSection } from './Sections/ContactSection'
 import { IntroduceSection } from './Sections/IntroduceSection'
 import { SlideSection } from './Sections/SlideSection'
@@ -21,6 +22,7 @@ export const FullPages: React.FC<FullPagesProps> = props => {
         return (
           <div>
             <NavBar fullpageApi={props.fullpageApi} />
+            <ResponsiveMenu fullpageApi={props.fullpageApi} />
             <div id="fullpage-wrapper">
               <IntroduceSection />
               <SlideSection />
