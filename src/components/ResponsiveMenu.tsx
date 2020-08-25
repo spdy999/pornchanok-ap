@@ -1,10 +1,14 @@
-import { Button, Hidden, makeStyles, Menu, MenuItem } from '@material-ui/core'
+import { Hidden, IconButton, makeStyles, Menu, MenuItem } from '@material-ui/core'
+import MenuIcon from '@material-ui/icons/Menu'
 import React, { useState } from 'react'
 
 const useStyles = makeStyles(theme => ({
   root: {
+    flexGrow: 1,
     position: 'fixed',
-    zIndex: 20,
+    right: 0,
+    top: 0,
+    zIndex: 2,
   },
 }))
 
@@ -21,11 +25,11 @@ const ResponsiveMenu: React.FC = () => {
     setAnchorEl(null)
   }
   return (
-    <div className={classes.root}>
+    <div id="myMenu" className={classes.root}>
       <Hidden smUp>
-        <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-          Open Menu
-        </Button>
+        <IconButton aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+          <MenuIcon />
+        </IconButton>
         <Menu
           id="simple-menu"
           anchorEl={anchorEl}

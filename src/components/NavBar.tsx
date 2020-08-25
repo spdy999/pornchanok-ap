@@ -3,8 +3,10 @@ import AppBar from '@material-ui/core/AppBar'
 import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core/styles'
 import Toolbar from '@material-ui/core/Toolbar'
-import React from 'react'
+import React, { useState } from 'react'
+import { buttonList, IButton } from '../buttons'
 import { IfullpageApi } from './FullPages'
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -30,6 +32,8 @@ interface NavBarProps {
 const NavBar: React.FC<NavBarProps> = props => {
   const classes = useStyles()
 
+  const [buttons] = useState(buttonList)
+
   return (
     <div id="myMenu" className={classes.root}>
       <Hidden xsDown>
@@ -38,21 +42,11 @@ const NavBar: React.FC<NavBarProps> = props => {
             <IconButton className={classes.iconButton}>
               <Avatar alt="React logo" src="logo192.png" />
             </IconButton>
-            <Button color="inherit" onClick={() => props.fullpageApi.moveTo(1)}>
-              HOME
-            </Button>
-            <Button color="inherit" onClick={() => props.fullpageApi.moveTo(2)}>
-              PROFESSIONAL
-            </Button>
-            <Button color="inherit" onClick={() => props.fullpageApi.moveTo(3)}>
-              EXPERIENCE
-            </Button>
-            <Button color="inherit" onClick={() => props.fullpageApi.moveTo(4)}>
-              PORTFOLIO
-            </Button>
-            <Button color="inherit" onClick={() => props.fullpageApi.moveTo(5)}>
-              CONTACT
-            </Button>
+            {buttons.map((button: IButton, i: number) => (
+              <Button color="inherit" onClick={() => props.fullpageApi.moveTo(i + 1)}>
+                {button.name}
+              </Button>
+            ))}
           </Toolbar>
         </AppBar>
       </Hidden>
