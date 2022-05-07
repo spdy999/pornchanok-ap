@@ -3,7 +3,7 @@ import { withStyles } from '@material-ui/styles'
 import React from 'react'
 import StyledTextH2 from '../common/StyledTextH2'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   container: {
     display: 'flex',
     flexDirection: 'column',
@@ -23,8 +23,7 @@ const StyledNameText = withStyles({
   },
 })(Box)
 
-interface FirstSectionProps {}
-export const FirstSection: React.FC<FirstSectionProps> = props => {
+export const FirstSection: React.FC = () => {
   const classes = useStyles()
 
   return (
@@ -35,7 +34,7 @@ export const FirstSection: React.FC<FirstSectionProps> = props => {
           <StyledNameText>PORNCHANOK</StyledNameText>
           <StyledNameText>AP.</StyledNameText>
         </Box>
-        <Box mb={30}></Box>
+        <Box mb={30} />
         <Box>
           <StyledTextH2>WEB & MOBILE</StyledTextH2>
           <StyledTextH2>DEVELOPER</StyledTextH2>

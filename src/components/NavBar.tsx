@@ -5,10 +5,10 @@ import { makeStyles } from '@material-ui/core/styles'
 import Toolbar from '@material-ui/core/Toolbar'
 import React from 'react'
 import { buttonList, IButton } from '../buttons'
-import { IfullpageApi } from './FullPages'
+import { IFullPageApi } from './FullPages'
 import HomeIcon from './HomeIcon'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     position: 'fixed',
@@ -27,20 +27,23 @@ const useStyles = makeStyles(theme => ({
 }))
 
 interface NavBarProps {
-  fullpageApi: IfullpageApi
+  fullpageApi: IFullPageApi
 }
 
-const NavBar: React.FC<NavBarProps> = props => {
+const NavBar: React.FC<NavBarProps> = (props) => {
   const classes = useStyles()
+
+  const onClickHomeIcon = () => props.fullpageApi.moveTo(1)
+  const onClickBtnList = (i: number) => () => props.fullpageApi.moveTo(i + 2)
 
   return (
     <div id="myMenu" className={classes.root}>
-      <Hidden xsDown>
+      <Hidden xsDown={true}>
         <AppBar className={classes.appBar} elevation={0}>
           <Toolbar className={classes.toolBar}>
-            <HomeIcon onClick={() => props.fullpageApi.moveTo(1)} />
+            <HomeIcon onClick={onClickHomeIcon} />
             {buttonList.map((button: IButton, i: number) => (
-              <Button color="inherit" onClick={() => props.fullpageApi.moveTo(i + 2)}>
+              <Button key={i} color="inherit" onClick={onClickBtnList(i)}>
                 {button.name}
               </Button>
             ))}

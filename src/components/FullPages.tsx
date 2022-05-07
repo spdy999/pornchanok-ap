@@ -6,38 +6,42 @@ import { ContactSection } from './Sections/ContactSection'
 import FirstSection from './Sections/FirstSection'
 import { SlideSection } from './Sections/SlideSection'
 
-interface FullPagesProps {}
-
-export interface IfullpageApi {
+export interface IFullPageApi {
+  // fullpageApi: {
   moveTo: (a: number) => void
+  // }
 }
-export const FullPages: React.FC<FullPagesProps> = props => {
+
+export const FullPages: React.FC = () => {
   return (
     <ReactFullpage
       scrollOverflow={true}
       sectionsColor={['', 'orange', 'purple', 'green']}
       anchors={['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage']}
       menu={'#myMenu'}
-      render={props => {
-        return (
-          <div>
-            <NavBar fullpageApi={props.fullpageApi} />
-            <ResponsiveMenu fullpageApi={props.fullpageApi} />
-            <div id="fullpage-wrapper">
-              <FirstSection />
-              <SlideSection />
-              <div className="section">
-                <h3>Section 3</h3>
-                <button onClick={() => props.fullpageApi.moveTo(1)}>Move top</button>
-              </div>
-              <div className="section">
-                <h3>Section 4</h3>
-              </div>
-              <ContactSection />
-            </div>
-          </div>
-        )
-      }}
+      render={FullPageRender}
     />
+  )
+}
+
+const FullPageRender: React.FC<IFullPageApi> = (props) => {
+  const onClickMoveToTop = () => props.moveTo(1)
+  return (
+    <div>
+      <NavBar fullpageApi={props} />
+      <ResponsiveMenu fullpageApi={props} />
+      <div id="fullpage-wrapper">
+        <FirstSection />
+        <SlideSection />
+        <div className="section">
+          <h3>Section 3</h3>
+          <button onClick={onClickMoveToTop}>Move top</button>
+        </div>
+        <div className="section">
+          <h3>Section 4</h3>
+        </div>
+        <ContactSection />
+      </div>
+    </div>
   )
 }

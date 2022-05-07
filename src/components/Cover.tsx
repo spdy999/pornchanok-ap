@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core'
 import React from 'react'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   cover: {
     width: '100%',
     height: '100vh',

@@ -1,7 +1,6 @@
 import React from 'react'
 
-interface SlideSectionProps {}
-export const SlideSection: React.FC<SlideSectionProps> = props => {
+export const SlideSection: React.FC = () => {
   return (
     <div className="section">
       <div className="slide">

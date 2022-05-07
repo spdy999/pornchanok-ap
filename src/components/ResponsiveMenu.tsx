@@ -2,10 +2,10 @@ import { Hidden, IconButton, makeStyles, Menu, MenuItem } from '@material-ui/cor
 import MenuIcon from '@material-ui/icons/Menu'
 import React, { useState } from 'react'
 import { buttonList, IButton } from '../buttons'
-import { IfullpageApi } from './FullPages'
+import { IFullPageApi } from './FullPages'
 import HomeIcon from './HomeIcon'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   root: {
     flexGrow: 1,
     position: 'fixed',
@@ -20,10 +20,10 @@ const useStyles = makeStyles(theme => ({
 }))
 
 interface ResponsiveMenuProps {
-  fullpageApi: IfullpageApi
+  fullpageApi: IFullPageApi
 }
 
-const ResponsiveMenu: React.FC<ResponsiveMenuProps> = props => {
+const ResponsiveMenu: React.FC<ResponsiveMenuProps> = (props) => {
   const classes = useStyles()
 
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
@@ -36,40 +36,34 @@ const ResponsiveMenu: React.FC<ResponsiveMenuProps> = props => {
     setAnchorEl(null)
   }
 
+  const onMenuItemClick = (i: number) => () => {
+    setAnchorEl(null)
+    props.fullpageApi.moveTo(i + 2)
+  }
+
+  const onHomeIconClick = () => {
+    setAnchorEl(null)
+    props.fullpageApi.moveTo(1)
+  }
+
   return (
     <div id="myMenu" className={classes.root}>
-      <Hidden smUp>
+      <Hidden smUp={true}>
         <IconButton aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
           <MenuIcon />
         </IconButton>
         <Menu
           id="simple-menu"
           anchorEl={anchorEl}
-          keepMounted
+          keepMounted={true}
           open={Boolean(anchorEl)}
           onClose={handleClose}
         >
-          <MenuItem
-            className={classes.homeIcon}
-            onClick={() => {
-              setAnchorEl(null)
-              props.fullpageApi.moveTo(1)
-            }}
-          >
-            <HomeIcon
-              onClick={() => {
-                setAnchorEl(null)
-                props.fullpageApi.moveTo(1)
-              }}
-            />
+          <MenuItem className={classes.homeIcon} onClick={onHomeIconClick}>
+            <HomeIcon onClick={onHomeIconClick} />
           </MenuItem>
           {buttonList.map((button: IButton, i: number) => (
-            <MenuItem
-              onClick={() => {
-                setAnchorEl(null)
-                props.fullpageApi.moveTo(i + 2)
-              }}
-            >
+            <MenuItem key={i} onClick={onMenuItemClick(i)}>
               {button.name}
             </MenuItem>
           ))}
